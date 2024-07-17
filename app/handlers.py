@@ -13,7 +13,7 @@ async def cmd_start(message: Message):
 
 
 # Обработчик команды /add
-
+@router.message(Command('add'))
 async def cmd_add(message: Message):
     user_id = message.from_user.id  # Получаем ID пользователя
     text = message.text[len("/add "):].strip()  # Получение аргументов после команды /add
@@ -28,7 +28,7 @@ async def cmd_add(message: Message):
 
 
 # Обработчик команды /list
-
+@router.message(Command('list'))
 async def cmd_list(message: Message):
     user_id = message.from_user.id  # Получаем ID пользователя
     await list_tasks(message)  # Вызываем функцию для вывода списка задач
